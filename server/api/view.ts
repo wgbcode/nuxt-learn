@@ -6,13 +6,14 @@ const connection = mysql2.createConnection({
   database: "test",
 });
 
-export default function defineEventHandler() {
+export default function defineEventHandler(event: any) {
+  console.log(event);
   return new Promise((resolve, reject) => {
     connection.query(
       "select * from person",
       function (err: any, results: any, fields: any) {
         if (err) {
-          resolve({
+          reject({
             code: 500,
             message: err,
           });
