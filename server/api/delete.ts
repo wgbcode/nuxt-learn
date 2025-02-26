@@ -6,7 +6,7 @@ const connection = mysql2.createConnection({
   database: "test",
 });
 
-export default function defineEventHandler() {
+export default defineEventHandler(() => {
   return new Promise((resolve, reject) => {
     connection.query(
       "delete from person where id = 2",
@@ -25,4 +25,4 @@ export default function defineEventHandler() {
       }
     );
   });
-}
+});

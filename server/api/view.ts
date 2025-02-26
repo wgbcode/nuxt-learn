@@ -6,9 +6,10 @@ const connection = mysql2.createConnection({
   database: "test",
 });
 
-export default function defineEventHandler(event: any) {
-  console.log(event);
-  return new Promise((resolve, reject) => {
+export default defineEventHandler((event: any) => {
+  return new Promise(async (resolve, reject) => {
+    const name = await useStorage("redis").getItem("name");
+    console.log("redis 数据", name);
     connection.query(
       "select * from person",
       function (err: any, results: any, fields: any) {
@@ -26,4 +27,4 @@ export default function defineEventHandler(event: any) {
       }
     );
   });
-}
+});

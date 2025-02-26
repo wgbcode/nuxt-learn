@@ -20,7 +20,7 @@ async function updateHandler() {
 async function viewHandler() {
   const res = await useFetch("/api/view", {
     method: "post",
-    body: { test: 123 },
+    body: { test: 123456 },
   });
   console.log("res", res);
 }
