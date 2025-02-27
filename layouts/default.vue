@@ -14,6 +14,7 @@
         <li class="test"><NuxtLink to="/page1">测试1</NuxtLink></li>
         <li class="test"><NuxtLink to="/page2">测试2（服务器）</NuxtLink></li>
         <li class="test"><NuxtLink to="/page3">测试3</NuxtLink></li>
+        <li class="test"><NuxtLink to="/page4">测试3</NuxtLink></li>
       </ul>
     </div>
     <div style="flex: 1; height: 100%">

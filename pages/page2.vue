@@ -1,5 +1,6 @@
 <template>
   <div style="color: white">
+    <span>预渲染内容：{{ name }}</span>
     <button @click="addHandler" class="test">add</button>
     <button @click="deleteHandler" class="test">delete</button>
     <button @click="updateHandler" class="test">update</button>
@@ -8,6 +9,8 @@
 </template>
 
 <script setup>
+const name = shallowRef("Bin");
+
 async function addHandler() {
   await useFetch("/api/add");
 }
@@ -22,8 +25,9 @@ async function viewHandler() {
     method: "post",
     body: { test: 123456 },
   });
-  console.log("res", res);
+  name.value = res.data.value.data[0].name;
 }
+viewHandler();
 </script>
 
 <style lang="scss" scoped>
